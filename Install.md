@@ -18,7 +18,7 @@ Do not do this in production
 
 ```
 setenforce 0
-sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
+sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
 reboot
 ```
 
