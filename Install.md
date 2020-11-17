@@ -1,4 +1,4 @@
-### Firewall config on master node
+### Firewall Config on Master Node
 
 ```
 firewall-cmd --permanent --add-port=6443/tcp
@@ -11,7 +11,7 @@ firewall-cmd –reload
 modprobe br_netfilter
 echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables
 ```
-### Firewall on worker nodes
+### Firewall on Worker Nodes
 ```
 sudo firewall-cmd --permanent --add-port=10251/tcp
 sudo firewall-cmd --permanent --add-port=10255/tcp
@@ -50,8 +50,6 @@ yum install kubeadm kubelet kubectl docker -y
 ### Start Services
 
 ```
-systemctl enable kubelet
-systemctl start kubelet
-systemctl enable docker
-systemctl start docker
+systemctl enable kubelet --now
+systemctl enable docker --now
 ```
