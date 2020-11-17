@@ -1,4 +1,4 @@
-### Firewall config on nodes
+### Firewall config on master node
 
 ```
 firewall-cmd --permanent --add-port=6443/tcp
@@ -11,7 +11,12 @@ firewall-cmd –reload
 modprobe br_netfilter
 echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables
 ```
-
+### Firewall on worker nodes
+```
+sudo firewall-cmd --permanent --add-port=10251/tcp
+sudo firewall-cmd --permanent --add-port=10255/tcp
+firewall-cmd --reload
+```
 ### To Disable SELINUX
 
 Do not do this in production
@@ -36,10 +41,10 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cl
 EOF
 ```
 
-### Install Kubeadm and Docker
+### Install Kube Packages and Docker
 
 ```
-yum install kubeadm docker -y
+yum install kubeadm kubelet kubectl docker -y
 ```
 
 ### Start Services
