@@ -41,3 +41,12 @@ EOF
 ```
 yum install kubeadm docker -y
 ```
+
+### Start Services
+
+```
+systemctl enable kubelet
+systemctl start kubelet
+systemctl enable docker
+systemctl start docker
+```
